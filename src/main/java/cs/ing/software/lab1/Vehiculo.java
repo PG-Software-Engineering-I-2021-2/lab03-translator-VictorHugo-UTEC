@@ -1,3 +1,5 @@
+package cs.ing.software.lab1;
+
 public class Vehiculo {
 
     double consumo;
@@ -10,6 +12,6 @@ public class Vehiculo {
         cantidad = _cantidad;
     }
 
-    void imprimirViaje(double _viaje){}
+    String imprimirViaje(double _viaje){return "";}
     //void reabastecer(){};
 }

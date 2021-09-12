@@ -1,3 +1,7 @@
+package cs.ing.software.lab1;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 public class Prueba {
     public static void main(String[] args)
     {
