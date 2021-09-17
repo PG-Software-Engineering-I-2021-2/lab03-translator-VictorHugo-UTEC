@@ -2,24 +2,33 @@
 
 public class Automovil extends Vehiculo {
 
-    Automovil(double _consumo, double _capacidad, double _cantidad){
-<span class="fc" id="L6">        super(_consumo,_capacidad,_cantidad);</span>
+    Automovil(double consumo, double capacidad, double cantidad){
+<span class="fc" id="L6">        super(consumo,capacidad,cantidad);</span>
 <span class="fc" id="L7">    }</span>
 
     @Override
-    String imprimirViaje(double _viaje) {
-<span class="fc" id="L11">        double consumoViaje = _viaje * consumo;</span>
+    String imprimirViaje(double viajeKm) {
+<span class="fc" id="L11">        double consumoViaje = viajeKm * consumo;</span>
 <span class="fc" id="L12">        double remanenteFuel = cantidad - consumoViaje;</span>
-        String textOut;
 
-<span class="pc bpc" id="L15" title="1 of 2 branches missed.">        if(remanenteFuel &gt; 0) {</span>
-<span class="fc" id="L16">            textOut = &quot;El vehiculo viajo: &quot; + _viaje + &quot; Km y aun tiene &quot; + remanenteFuel + &quot; de combustible&quot;;</span>
-<span class="fc" id="L17">            System.out.println(textOut);</span>
-<span class="fc" id="L18">            return textOut;</span>
+<span class="fc bfc" id="L14" title="All 2 branches covered.">        if(remanenteFuel &gt; 0) {</span>
+<span class="fc" id="L15">            this.cantidad = this.cantidad - consumoViaje;</span>
+<span class="fc" id="L16">            return &quot;El Automovil viajo: &quot; + viajeKm + &quot; Km y aun tiene &quot; + remanenteFuel + &quot; litros de combustible&quot;;</span>
         }else{
-<span class="nc" id="L20">            textOut = &quot;Vehiculo necesita reabastecmiento de combustible&quot;;</span>
-<span class="nc" id="L21">            System.out.println(textOut);</span>
-<span class="nc" id="L22">            return textOut;</span>
+<span class="fc" id="L18">            return &quot;El Automovil necesita reabastecmiento de combustible.&quot;;</span>
+        }
+    }
+
+    @Override
+    String reabastecer(double litros){
+<span class="fc" id="L24">        double espacio = capacidad - cantidad;</span>
+
+<span class="fc bfc" id="L26" title="All 2 branches covered.">        if (litros &gt; espacio) {</span>
+<span class="fc" id="L27">            return &quot;No de puede reabastecer el tanque del Automovil. Esta lleno.&quot;;</span>
+        }
+        else{
+<span class="fc" id="L30">            cantidad = cantidad + litros;</span>
+<span class="fc" id="L31">            return &quot;El combustible del Automovil es: &quot; + cantidad+&quot; litros.&quot;;</span>
         }
     }
 }

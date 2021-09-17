@@ -1,17 +1,17 @@
 package cs.ing.software.lab1;
 
-public class Vehiculo {
+public abstract class Vehiculo {
 
     double consumo;
     double capacidad;
     double cantidad;
 
-    Vehiculo(double _consumo, double _capacidad, double _cantidad){
-        consumo = _consumo;
-        capacidad = _capacidad;
-        cantidad = _cantidad;
+    Vehiculo(double myConsumo, double myCapacidad,double myCantidad){
+        consumo = myConsumo;
+        capacidad = myCapacidad;
+        cantidad = myCantidad;
     }
 
-    String imprimirViaje(double _viaje){return "";}
-    //void reabastecer(){};
+    abstract String imprimirViaje(double viajeKm);
+    abstract String reabastecer(double litros);
 }

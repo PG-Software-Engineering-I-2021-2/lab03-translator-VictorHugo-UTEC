@@ -2,24 +2,32 @@
 
 public class Camion extends Vehiculo{
 
-    Camion(double _consumo, double _capacidad, double _cantidad){
-<span class="nc" id="L6">        super(_consumo,_capacidad,_cantidad);</span>
+    Camion(double consumo, double capacidad, double cantidad){
+<span class="nc" id="L6">        super(consumo,capacidad,cantidad);</span>
 <span class="nc" id="L7">    }</span>
     @Override
-    String imprimirViaje(double _viaje) {
-<span class="nc" id="L10">        double consumoViaje = _viaje * consumo;//</span>
-        //double remanenteFuel = cantidad*(capacidad/100) - consumoViaje;
-<span class="nc" id="L12">        double remanenteFuel = 1*(capacidad/100)+(cantidad-1)*(capacidad/100)*0.95 - consumoViaje;</span>
-        String textOut;
+    String imprimirViaje(double viajeKm) {
+<span class="nc" id="L10">        double consumoViaje = viajeKm * consumo;</span>
+<span class="nc" id="L11">        double remanenteFuel = cantidad - consumoViaje;</span>
 
-<span class="nc bnc" id="L15" title="All 2 branches missed.">        if(remanenteFuel &gt; 0) {</span>
-<span class="nc" id="L16">            textOut = &quot;El camion viajo: &quot; + _viaje + &quot; Km y aun tiene &quot; + String.format(&quot;%.2f&quot;, remanenteFuel) + &quot; de combustible&quot;;</span>
-<span class="nc" id="L17">            System.out.println(textOut);</span>
-<span class="nc" id="L18">            return textOut;</span>
+<span class="nc bnc" id="L13" title="All 2 branches missed.">        if(remanenteFuel &gt; 0) {</span>
+<span class="nc" id="L14">            cantidad = cantidad - consumoViaje;</span>
+<span class="nc" id="L15">            return &quot;El Camion viajo: &quot;+viajeKm+&quot; Km y aun tiene &quot;+String.format(&quot;%.2f&quot;, remanenteFuel)+ &quot; litros de combustible.&quot;;</span>
         }else {
-<span class="nc" id="L20">            textOut = &quot;camion necesita reabastecmiento de combustible&quot;;</span>
-<span class="nc" id="L21">            System.out.println(textOut);</span>
-<span class="nc" id="L22">            return textOut;</span>
+<span class="nc" id="L17">            return &quot;El Camion necesita reabastecmiento de combustible.&quot;;</span>
+        }
+    }
+
+    @Override
+    String reabastecer(double litros){
+<span class="nc" id="L23">        double espacio = capacidad - cantidad;</span>
+
+<span class="nc bnc" id="L25" title="All 2 branches missed.">        if (litros &gt; espacio) {</span>
+<span class="nc" id="L26">            return &quot;No de puede reabastecer el tanque del Camion. Esta lleno.&quot;;</span>
+        }
+        else{
+<span class="nc" id="L29">            cantidad = cantidad + litros * 0.95;</span>
+<span class="nc" id="L30">            return &quot;El combustible del Camion es: &quot; + cantidad + &quot; litros.&quot;;</span>
         }
     }
 }
