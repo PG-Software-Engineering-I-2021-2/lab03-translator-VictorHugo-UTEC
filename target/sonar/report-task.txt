@@ -1,7 +1,0 @@
-organization=pg-software-engineering-i-2021-2
-projectKey=org.example:lab01-recordando-po-vh
-serverUrl=https://sonarcloud.io
-serverVersion=8.0.0.23304
-dashboardUrl=https://sonarcloud.io/dashboard?id=org.example%3Alab01-recordando-po-vh
-ceTaskId=AXv14fOa7bO-ACJGqVXt
-ceTaskUrl=https://sonarcloud.io/api/ce/task?id=AXv14fOa7bO-ACJGqVXt
